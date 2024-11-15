@@ -6,30 +6,32 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const HomeViewBody(),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
+    return SafeArea(
+      child: Scaffold(
+        body: const HomeViewBody(),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+              ),
+              label: '',
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search_rounded,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.search_rounded,
+              ),
+              label: '',
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.bookmark_outline_sharp,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.bookmark_outline_sharp,
+              ),
+              label: '',
+      
             ),
-            label: '',
-
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
