@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_movie/core/utils/assets_data.dart';
 import 'package:my_movie/core/utils/styles.dart';
+import 'package:my_movie/features/home/presentation/views/widgets/top_five_list_view_item.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -34,7 +34,7 @@ class HomeViewBody extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const TopFiveListViewItem(),
+            const TopFiveListView(),
           ],
         ),
       ),
@@ -42,22 +42,25 @@ class HomeViewBody extends StatelessWidget {
   }
 }
 
-class TopFiveListViewItem extends StatelessWidget {
-  const TopFiveListViewItem({super.key});
+class TopFiveListView extends StatelessWidget {
+  const TopFiveListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      width: 300,
-      decoration:  BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        image: const DecorationImage(
-          fit: BoxFit.fill,
-          image: AssetImage(
-            AssetsData.testImage,
-          ),
-        ),
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * .253,
+      child: ListView.builder(
+        itemCount: 8,
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return const Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 11.6,
+            ),
+            child: TopFiveListViewItem(),
+          );
+        },
       ),
     );
   }
