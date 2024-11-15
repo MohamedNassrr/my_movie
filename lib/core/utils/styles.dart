@@ -9,8 +9,8 @@ abstract class Styles {
     color: Colors.white,
   );
 
-  static const textStyle20 = TextStyle(
-    fontSize: 20,
+  static const textStyle19 = TextStyle(
+    fontSize: 19,
     fontWeight: FontWeight.w700,
     fontFamily: poppins,
     color: Colors.white,
