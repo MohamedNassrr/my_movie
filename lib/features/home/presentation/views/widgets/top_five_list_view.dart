@@ -7,7 +7,7 @@ class TopFiveListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * .290,
+      height: MediaQuery.of(context).size.height * .350,
       child: ListView.builder(
         itemCount: 8,
         physics: const BouncingScrollPhysics(),

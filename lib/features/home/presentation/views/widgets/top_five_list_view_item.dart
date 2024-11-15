@@ -36,11 +36,29 @@ class TopFiveListViewItem extends StatelessWidget {
             ),
           ),
         ),
-        Text(
+        const Text(
           'Hitman’s Wife’s Bodyguard',
-          style: Styles.textStyle19.copyWith(
-          ),
+          style: Styles.textStyle19,
         ),
+       Row(
+         children: [
+           Text(
+             '3.5',
+             style: Styles.textStyle19.copyWith(
+               fontSize: 18,
+               color: Colors.grey,
+               fontWeight: FontWeight.normal,
+             ),
+           ),
+           const SizedBox(
+             width: 9,
+           ),
+           const Icon(
+             Icons.star,
+             color: Colors.amber,
+           ),
+         ],
+       ),
       ],
     );
   }
