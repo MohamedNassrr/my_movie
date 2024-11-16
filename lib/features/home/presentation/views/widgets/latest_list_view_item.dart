@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_movie/core/utils/assets_data.dart';
+import 'package:my_movie/features/home/presentation/views/widgets/latest_list_view_detail_item.dart';
 
 class LatestListViewItem extends StatelessWidget {
   const LatestListViewItem({super.key});
@@ -7,6 +8,7 @@ class LatestListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(
           height: 20,
@@ -37,7 +39,12 @@ class LatestListViewItem extends StatelessWidget {
             ),
           ),
         ),
+        const SizedBox(
+          width: 16,
+        ),
+        const LatestListViewDetailItem(),
       ],
     );
   }
 }
+

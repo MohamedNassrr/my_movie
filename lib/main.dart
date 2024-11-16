@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_movie/constance.dart';
 import 'package:my_movie/features/home/presentation/views/home_view.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
           showUnselectedLabels: false,
         ),
         textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme),
+
       ),
       darkTheme: ThemeData(
         scaffoldBackgroundColor: mainBackground,
@@ -50,6 +52,9 @@ class MyApp extends StatelessWidget {
           showUnselectedLabels: false,
         ),
         textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
+        extensions: const [
+          SkeletonizerConfigData.dark(),
+        ],
       ),
       themeMode: ThemeMode.dark,
       home: const HomeView(),

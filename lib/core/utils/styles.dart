@@ -18,22 +18,20 @@ abstract class Styles {
 
   static const textStyle14 = TextStyle(
     fontSize: 14,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.normal,
     fontFamily: poppins,
     color: Colors.white,
   );
 
   static const textStyle13 = TextStyle(
     fontSize: 13,
-    fontWeight: FontWeight.w400,
-    fontFamily: poppins,
+    fontWeight: FontWeight.normal,
     color: Colors.white,
   );
 
   static const textStyle18 = TextStyle(
     fontSize: 18,
-    fontWeight: FontWeight.w400,
-    fontFamily: poppins,
+    fontWeight: FontWeight.normal,
     color: Colors.white,
   );
 }
