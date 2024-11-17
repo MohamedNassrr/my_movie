@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_movie/constance.dart';
-import 'package:my_movie/features/home/presentation/views/home_view.dart';
+import 'package:my_movie/core/utils/app_router.dart';
+import 'package:my_movie/features/home/view_models/home_cubit/cubit.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 void main() {
@@ -22,42 +24,43 @@ class MyApp extends StatelessWidget {
         // Set status bar color to white
         statusBarIconBrightness: Brightness.light,
         // Set icon brightness to dark for visibility
-
       ),
     );
 
-    return  MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.light,
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Colors.white,
-          selectedItemColor: Colors.amber,
-          unselectedItemColor: Colors.grey,
-          type: BottomNavigationBarType.fixed,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
+    return BlocProvider(
+      create: (context) => HomeCubit(),
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          brightness: Brightness.light,
+          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            backgroundColor: Colors.white,
+            selectedItemColor: Colors.amber,
+            unselectedItemColor: Colors.grey,
+            type: BottomNavigationBarType.fixed,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+          ),
+          textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme),
         ),
-        textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme),
-
-      ),
-      darkTheme: ThemeData(
-        scaffoldBackgroundColor: mainBackground,
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: mainBackground,
-          selectedItemColor: Colors.amber,
-          unselectedItemColor: Colors.white,
-          type: BottomNavigationBarType.fixed,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
+        darkTheme: ThemeData(
+          scaffoldBackgroundColor: mainBackground,
+          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            backgroundColor: mainBackground,
+            selectedItemColor: Colors.amber,
+            unselectedItemColor: Colors.white,
+            type: BottomNavigationBarType.fixed,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+          ),
+          textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
+          extensions: const [
+            SkeletonizerConfigData.dark(),
+          ],
         ),
-        textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
-        extensions: const [
-          SkeletonizerConfigData.dark(),
-        ],
+        themeMode: ThemeMode.dark,
+        routerConfig: AppRouter.router,
       ),
-      themeMode: ThemeMode.dark,
-      home: const HomeView(),
     );
   }
 }

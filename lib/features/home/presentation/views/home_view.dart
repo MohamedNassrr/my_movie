@@ -1,38 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:my_movie/features/home/presentation/views/widgets/home_view_body.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_movie/features/home/view_models/home_cubit/cubit.dart';
+import 'package:my_movie/features/home/view_models/home_cubit/state.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: const HomeViewBody(),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-              ),
-              label: '',
+    return BlocConsumer<HomeCubit, HomeStates>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        var cubit = HomeCubit.get(context);
+        return SafeArea(
+          child: Scaffold(
+            body: cubit.screens[cubit.currentIndex],
+            bottomNavigationBar: BottomNavigationBar(
+              currentIndex: cubit.currentIndex,
+              onTap: (index){
+                cubit.changeBotNavBar(index);
+              },
+              items: cubit.bottomItems,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.search_rounded,
-              ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.bookmark_outline_sharp,
-              ),
-              label: '',
-      
-            ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
