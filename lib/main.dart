@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_movie/constance.dart';
 import 'package:my_movie/core/utils/app_router.dart';
-import 'package:my_movie/features/home/view_models/home_cubit/cubit.dart';
+import 'package:my_movie/features/home/presentation/controller/home_cubit/cubit.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 void main() {

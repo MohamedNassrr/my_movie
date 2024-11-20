@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_movie/features/book_mark/presentation/views/bookmark_view.dart';
+import 'package:my_movie/features/home/presentation/controller/home_cubit/state.dart';
 import 'package:my_movie/features/home/presentation/views/widgets/home_view_body.dart';
-import 'package:my_movie/features/home/view_models/home_cubit/state.dart';
 import 'package:my_movie/features/search/presentation/views/search_view.dart';
 
 class HomeCubit extends Cubit<HomeStates> {
