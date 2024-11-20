@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_movie/features/book_mark/presentation/views/bookmark_view.dart';
 import 'package:my_movie/features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:my_movie/features/home/view_models/home_cubit/state.dart';
+import 'package:my_movie/features/search/presentation/views/search_view.dart';
 
 class HomeCubit extends Cubit<HomeStates> {
   HomeCubit() : super(HomeInitialState());
@@ -13,23 +15,25 @@ class HomeCubit extends Cubit<HomeStates> {
 
   List<Widget> screens = [
     const HomeViewBody(),
+    const SearchView(),
+    const BookmarkView(),
 
   ];
 
   List<BottomNavigationBarItem> bottomItems =[
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon: Icon(
         Icons.home,
       ),
       label: '',
     ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon: Icon(
         Icons.search_rounded,
       ),
       label: '',
     ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon: Icon(
         Icons.bookmark_outline_sharp,
       ),
@@ -40,10 +44,10 @@ class HomeCubit extends Cubit<HomeStates> {
 
   void changeBotNavBar(int index){
     currentIndex = index;
-    // if(index == 1)
-    //   BookMark();
-    // if(index == 2)
-    //   Search();
+    if(index == 1)
+      SearchView();
+    if(index == 2)
+      BookmarkView();
 
     emit(HomeChangeBotNavBarState());
   }

@@ -6,21 +6,25 @@ class DiscoverListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 8,
-      physics: const BouncingScrollPhysics(),
-      scrollDirection: Axis.horizontal,
-      itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 10,
-          ),
-          child: GestureDetector(
-            onTap: () {},
-            child: const DiscoverListViewItem(),
-          ),
-        );
-      },
+    return SizedBox(
+      height: 20,
+      child: ListView.builder(
+        itemCount: 8,
+        physics: const BouncingScrollPhysics(),
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 10,
+            ),
+            child: GestureDetector(
+              onTap: () {},
+              child: const DiscoverListViewItem(),
+            ),
+          );
+        },
+      ),
     );
   }
 }
