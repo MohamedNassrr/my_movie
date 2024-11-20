@@ -1,13 +1,13 @@
 import 'Results.dart';
 
-class BookModel {
-  BookModel({
+class MovieModel {
+  MovieModel({
       this.page, 
       this.results, 
       this.totalPages, 
       this.totalResults,});
 
-  BookModel.fromJson(dynamic json) {
+  MovieModel.fromJson(dynamic json) {
     page = json['page'];
     if (json['results'] != null) {
       results = [];
