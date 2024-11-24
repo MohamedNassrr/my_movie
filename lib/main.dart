@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:my_movie/constance.dart';
 import 'package:my_movie/core/utils/app_router.dart';
+import 'package:my_movie/core/utils/bloc_observer.dart';
+import 'package:my_movie/core/utils/service_locator.dart';
+import 'package:my_movie/core/utils/theme_data.dart';
+import 'package:my_movie/features/home/data/repos/home_repo_impl.dart';
 import 'package:my_movie/features/home/presentation/controller/home_cubit/cubit.dart';
-import 'package:skeletonizer/skeletonizer.dart';
+import 'package:my_movie/features/home/presentation/controller/latest_cubit/latest_cubit.dart';
+import 'package:my_movie/features/home/presentation/controller/top_five_cubit/top_five_cubit.dart';
 
 void main() {
+  Bloc.observer = MyBlocObserver();
+  setupServerLocator();
   runApp(const MyApp());
 }
 
@@ -27,37 +32,26 @@ class MyApp extends StatelessWidget {
       ),
     );
 
-    return BlocProvider(
-      create: (context) => HomeCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => TopFiveMovieCubit(
+            gitIt.get<HomeRepoImpl>(),
+          )..fetchTopFiveMovie(),
+        ),
+        BlocProvider(
+          create: (context) => LatestMovieCubit(
+            gitIt.get<HomeRepoImpl>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => HomeCubit(),
+        ),
+      ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          brightness: Brightness.light,
-          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-            backgroundColor: Colors.white,
-            selectedItemColor: Colors.amber,
-            unselectedItemColor: Colors.grey,
-            type: BottomNavigationBarType.fixed,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-          ),
-          textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme),
-        ),
-        darkTheme: ThemeData(
-          scaffoldBackgroundColor: mainBackground,
-          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-            backgroundColor: mainBackground,
-            selectedItemColor: Colors.amber,
-            unselectedItemColor: Colors.white,
-            type: BottomNavigationBarType.fixed,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-          ),
-          textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
-          extensions: const [
-            SkeletonizerConfigData.dark(),
-          ],
-        ),
+        theme: lightTheme,
+        darkTheme: darkTheme,
         themeMode: ThemeMode.dark,
         routerConfig: AppRouter.router,
       ),

@@ -7,7 +7,7 @@ class TopFiveInitialState extends TopFiveStates{}
 class TopFiveLoadingState extends TopFiveStates{}
 
 class TopFiveSuccessState extends TopFiveStates{
-  // why we sent data in status? bec we deal with List
+  // why we sent data in states? bec we deal with List
   final List<TopFiveModel> model;
 
   TopFiveSuccessState(this.model);

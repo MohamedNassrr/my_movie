@@ -44,10 +44,7 @@ class HomeViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                const Skeletonizer(
-                  enabled: false,
-                  child: TopFiveListView(),
-                ),
+                const TopFiveListView(),
               ],
             ),
           ),

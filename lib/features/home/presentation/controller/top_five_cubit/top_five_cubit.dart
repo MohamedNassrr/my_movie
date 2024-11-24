@@ -9,7 +9,7 @@ class TopFiveMovieCubit extends Cubit<TopFiveStates>{
 
   final HomeRepo homeRepo;
 
-  Future<void> topFiveMovieModel() async {
+  Future<void> fetchTopFiveMovie() async {
     emit(TopFiveLoadingState());
 
    var result = await homeRepo.fetchTopFiveMovie();

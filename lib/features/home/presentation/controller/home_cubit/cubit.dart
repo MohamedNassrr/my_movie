@@ -44,10 +44,12 @@ class HomeCubit extends Cubit<HomeStates> {
 
   void changeBotNavBar(int index){
     currentIndex = index;
-    if(index == 1)
-      SearchView();
-    if(index == 2)
-      BookmarkView();
+    if(index == 1) {
+      const SearchView();
+    }
+    if(index == 2) {
+      const BookmarkView();
+    }
 
     emit(HomeChangeBotNavBarState());
   }
