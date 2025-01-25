@@ -52,13 +52,10 @@ class DiscoveryViewBody extends StatelessWidget {
             ),
           ),
           const SliverToBoxAdapter(
-            child:  DiscoverGridList(),
+            child: DiscoverGridList(),
           ),
         ],
       ),
     );
-
   }
 }
-
-

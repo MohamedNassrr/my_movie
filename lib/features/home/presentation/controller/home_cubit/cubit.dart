@@ -10,17 +10,15 @@ class HomeCubit extends Cubit<HomeStates> {
 
   static HomeCubit get(context) => BlocProvider.of(context);
 
-
   int currentIndex = 0;
 
   List<Widget> screens = [
     const HomeViewBody(),
     const SearchView(),
     const BookmarkView(),
-
   ];
 
-  List<BottomNavigationBarItem> bottomItems =[
+  List<BottomNavigationBarItem> bottomItems = [
     const BottomNavigationBarItem(
       icon: Icon(
         Icons.home,
@@ -38,16 +36,15 @@ class HomeCubit extends Cubit<HomeStates> {
         Icons.bookmark_outline_sharp,
       ),
       label: '',
-
     ),
   ];
 
-  void changeBotNavBar(int index){
+  void changeBotNavBar(int index) {
     currentIndex = index;
-    if(index == 1) {
+    if (index == 1) {
       const SearchView();
     }
-    if(index == 2) {
+    if (index == 2) {
       const BookmarkView();
     }
 

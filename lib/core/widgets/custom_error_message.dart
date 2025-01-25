@@ -15,7 +15,11 @@ class CustomErrorMessage extends StatelessWidget {
         const SizedBox(
           width: 5,
         ),
-        Text(errMessage, style: Styles.textStyle18,),
+        Text(
+          errMessage,
+          style: Styles.textStyle18,
+
+        ),
       ],
     );
   }

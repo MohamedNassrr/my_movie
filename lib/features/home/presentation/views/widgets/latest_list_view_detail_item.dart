@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:my_movie/core/utils/styles.dart';
+import 'package:my_movie/features/home/data/models/movie_models/movie_model.dart';
 
 class LatestListViewDetailItem extends StatelessWidget {
-  const LatestListViewDetailItem({super.key});
-
+  const LatestListViewDetailItem({super.key, required this.movieModel});
+  final MovieModel movieModel;
   @override
   Widget build(BuildContext context) {
-    return  Expanded(
+    return Expanded(
       child: Column(
         children: [
-          const Row(
+           Row(
             children: [
               Flexible(
                 child: Text(
-                  'Hitman’s Wife’s Bodyguard',
+                  movieModel.originalTitle,
                   style: Styles.textStyle19,
                 ),
               ),
@@ -22,16 +23,16 @@ class LatestListViewDetailItem extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const Row(
+           Row(
             children: [
               Text(
-                '3.5',
+                '${movieModel.voteAverage}',
                 style: Styles.textStyle18,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 9,
               ),
-              Icon(
+              const Icon(
                 Icons.star,
                 color: Colors.amber,
               ),
@@ -57,7 +58,7 @@ class LatestListViewDetailItem extends StatelessWidget {
                 child: Text(
                   maxLines: 5,
                   overflow: TextOverflow.ellipsis,
-                  'The world\'s most lethal odd couple - bodyguard Michael Bryce and hitman Darius Kincaid - are back on another',
+                  '${movieModel.overview}',
                   style: Styles.textStyle13.copyWith(
                     color: const Color(0xff888888),
                   ),

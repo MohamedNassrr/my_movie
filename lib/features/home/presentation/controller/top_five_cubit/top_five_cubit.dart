@@ -1,22 +1,25 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bloc/bloc.dart';
 import 'package:my_movie/features/home/data/repos/home_repo.dart';
-import 'package:my_movie/features/home/presentation/controller/top_five_cubit/top_five_state.dart';
+import 'package:my_movie/features/home/presentation/controller/top_five_cubit/top_five_states.dart';
 
-class TopFiveMovieCubit extends Cubit<TopFiveStates>{
-  TopFiveMovieCubit(this.homeRepo) : super(TopFiveInitialState());
-
-  static TopFiveMovieCubit get(context) => BlocProvider.of(context);
+class TopFiveCubit extends Cubit<TopFiveStates> {
+  TopFiveCubit(this.homeRepo) : super(TopFiveInitialStates());
 
   final HomeRepo homeRepo;
 
-  Future<void> fetchTopFiveMovie() async {
-    emit(TopFiveLoadingState());
+  Future<void> getTopFive() async {
+    emit(TopFiveLoadingStates());
+    var result = await homeRepo.fetchTopFiveMovies();
 
-   var result = await homeRepo.fetchTopFiveMovie();
-   result.fold((failure) {
-     emit(TopFiveErrorState(failure.errorMessage));
-   }, (model){
-     emit(TopFiveSuccessState(model));
-   });
+    result.fold(
+      (failure) => emit(
+        TopFiveErrorStates(
+          failure.errorMessage.toString(),
+        ),
+      ),
+      (movies) => emit(
+        TopFiveSuccessStates(movies),
+      ),
+    );
   }
 }

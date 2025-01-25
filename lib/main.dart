@@ -7,7 +7,7 @@ import 'package:my_movie/core/utils/service_locator.dart';
 import 'package:my_movie/core/utils/theme_data.dart';
 import 'package:my_movie/features/home/data/repos/home_repo_impl.dart';
 import 'package:my_movie/features/home/presentation/controller/home_cubit/cubit.dart';
-import 'package:my_movie/features/home/presentation/controller/latest_cubit/latest_cubit.dart';
+import 'package:my_movie/features/home/presentation/controller/latest_movie_cubit/latest_movie_cubit.dart';
 import 'package:my_movie/features/home/presentation/controller/top_five_cubit/top_five_cubit.dart';
 
 void main() {
@@ -35,14 +35,14 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => TopFiveMovieCubit(
-            gitIt.get<HomeRepoImpl>(),
-          )..fetchTopFiveMovie(),
-        ),
-        BlocProvider(
           create: (context) => LatestMovieCubit(
             gitIt.get<HomeRepoImpl>(),
-          ),
+          )..getLatestMovies(),
+        ),
+        BlocProvider(
+          create: (context) => TopFiveCubit(
+            gitIt.get<HomeRepoImpl>(),
+          )..getTopFive(),
         ),
         BlocProvider(
           create: (context) => HomeCubit(),

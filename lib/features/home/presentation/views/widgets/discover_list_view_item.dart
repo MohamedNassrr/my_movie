@@ -13,9 +13,8 @@ class DiscoverListViewItem extends StatelessWidget {
           height: 25,
           decoration: BoxDecoration(
               color: const Color(0xff2A2A2A),
-              borderRadius: BorderRadius.circular(28)
-          ),
-          child:  Center(
+              borderRadius: BorderRadius.circular(28)),
+          child: Center(
             child: Text(
               'All'.toUpperCase(),
             ),

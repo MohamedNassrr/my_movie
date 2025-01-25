@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_movie/core/utils/assets_data.dart';
+import 'package:my_movie/features/home/data/models/movie_models/movie_model.dart';
 import 'package:my_movie/features/home/presentation/views/widgets/latest_list_view_detail_item.dart';
 
 class LatestListViewItem extends StatelessWidget {
-  const LatestListViewItem({super.key});
+  const LatestListViewItem({super.key, required this.movieModel});
+  final MovieModel movieModel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +19,10 @@ class LatestListViewItem extends StatelessWidget {
           height: MediaQuery.of(context).size.height * .35,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            image: const DecorationImage(
+            image:  DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage(
-                AssetsData.testImage,
+              image: NetworkImage(
+                'https://image.tmdb.org/t/p/w500${movieModel.posterPath}',
               ),
             ),
           ),
@@ -42,9 +43,10 @@ class LatestListViewItem extends StatelessWidget {
         const SizedBox(
           width: 16,
         ),
-        const LatestListViewDetailItem(),
+         LatestListViewDetailItem(
+           movieModel: movieModel,
+         ),
       ],
     );
   }
 }
-

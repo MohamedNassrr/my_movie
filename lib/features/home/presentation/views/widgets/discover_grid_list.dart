@@ -15,8 +15,8 @@ class DiscoverGridList extends StatelessWidget {
       crossAxisCount: 2,
       children: List.generate(
         15,
-            (index) => GestureDetector(
-          onTap: (){
+        (index) => GestureDetector(
+          onTap: () {
             print('list pressed');
           },
           child: Column(

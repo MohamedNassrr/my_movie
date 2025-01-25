@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
             body: cubit.screens[cubit.currentIndex],
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: cubit.currentIndex,
-              onTap: (index){
+              onTap: (index) {
                 cubit.changeBotNavBar(index);
               },
               items: cubit.bottomItems,

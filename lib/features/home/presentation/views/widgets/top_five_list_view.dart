@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_movie/core/widgets/custom_error_message.dart';
 import 'package:my_movie/features/home/presentation/controller/top_five_cubit/top_five_cubit.dart';
-import 'package:my_movie/features/home/presentation/controller/top_five_cubit/top_five_state.dart';
+import 'package:my_movie/features/home/presentation/controller/top_five_cubit/top_five_states.dart';
 import 'package:my_movie/features/home/presentation/views/widgets/top_five_list_view_item.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -11,31 +11,31 @@ class TopFiveListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TopFiveMovieCubit, TopFiveStates>(
+    return BlocBuilder<TopFiveCubit, TopFiveStates>(
       builder: (context, state) {
-        if(state is TopFiveSuccessState){
+        if (state is TopFiveSuccessStates) {
           return SizedBox(
             height: MediaQuery.of(context).size.height * .350,
             child: ListView.builder(
-              itemCount: 5,
+              itemCount: state.movies.length,
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.symmetric(
+                return  Padding(
+                  padding: const EdgeInsets.symmetric(
                     horizontal: 11.6,
                   ),
-                  child: TopFiveListViewItem(),
+                  child: TopFiveListViewItem(
+                    movieModel: state.movies[index],
+                  ),
                 );
               },
             ),
           );
-        }else if(state is TopFiveErrorState){
+        } else if (state is TopFiveErrorStates) {
           return CustomErrorMessage(errMessage: state.errMessage);
-        }else{
-          return const Skeletonizer(
-            child: TopFiveListViewItem(),
-          );
+        } else {
+          return  const Center(child: CircularProgressIndicator(),);
         }
       },
     );

@@ -13,11 +13,10 @@ abstract class AppRouter {
         builder: (BuildContext context, GoRouterState state) =>
             const HomeView(),
       ),
-
       GoRoute(
         path: kDiscovery,
         builder: (BuildContext context, GoRouterState state) =>
-        const DiscoveryView(),
+            const DiscoveryView(),
       ),
     ],
   );

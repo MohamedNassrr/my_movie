@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_movie/core/utils/assets_data.dart';
 import 'package:my_movie/core/utils/styles.dart';
+import 'package:my_movie/features/home/data/models/movie_models/movie_model.dart';
 
 class TopFiveListViewItem extends StatelessWidget {
-  const TopFiveListViewItem({super.key});
-
+  const TopFiveListViewItem({super.key, required this.movieModel});
+  final MovieModel movieModel;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,10 +15,11 @@ class TopFiveListViewItem extends StatelessWidget {
           height: MediaQuery.of(context).size.height * .252,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            image: const DecorationImage(
+            image:  DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage(
-                AssetsData.testImage,
+              image: NetworkImage(
+                'https://image.tmdb.org/t/p/w500${movieModel.posterPath}',
+
               ),
             ),
           ),
@@ -36,29 +37,29 @@ class TopFiveListViewItem extends StatelessWidget {
             ),
           ),
         ),
-        const Text(
-          'Hitman’s Wife’s Bodyguard',
+         Text(
+          movieModel.originalTitle,
           style: Styles.textStyle19,
         ),
-       Row(
-         children: [
-           Text(
-             '3.5',
-             style: Styles.textStyle19.copyWith(
-               fontSize: 18,
-               color: Colors.grey,
-               fontWeight: FontWeight.normal,
-             ),
-           ),
-           const SizedBox(
-             width: 9,
-           ),
-           const Icon(
-             Icons.star,
-             color: Colors.amber,
-           ),
-         ],
-       ),
+        Row(
+          children: [
+            Text(
+              movieModel.voteAverage ?? '',
+              style: Styles.textStyle19.copyWith(
+                fontSize: 18,
+                color: Colors.grey,
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+            const SizedBox(
+              width: 9,
+            ),
+            const Icon(
+              Icons.star,
+              color: Colors.amber,
+            ),
+          ],
+        ),
       ],
     );
   }
