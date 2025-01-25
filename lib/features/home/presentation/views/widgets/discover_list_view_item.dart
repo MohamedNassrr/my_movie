@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class DiscoverListViewItem extends StatelessWidget {
   const DiscoverListViewItem({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Row(

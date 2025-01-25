@@ -14,7 +14,7 @@ class LatestListView extends StatelessWidget {
       builder: (context, state) {
         if (state is LatestMovieSuccessStates) {
           return ListView.builder(
-            itemCount: 10,
+            itemCount: state.movie.length,
             shrinkWrap: true,
             padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),

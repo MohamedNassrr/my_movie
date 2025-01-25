@@ -53,7 +53,7 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<MovieModel>>> fetchSeeMoreMovies() async {
+  Future<Either<Failure, List<MovieModel>>> fetchDiscoverMovies() async {
     try {
       var data = await apiService.get(endPoint: 'discover/movie');
       List<MovieModel> movies = [];
