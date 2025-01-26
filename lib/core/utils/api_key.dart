@@ -1,0 +1,3 @@
+abstract class ApiKeys{
+  static const secretKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMjEyZDE4YWRiNjA4ZmQzYzlkZTY3MjgyNmYxZjZlYiIsIm5iZiI6MTczNzc1Mjc4My4zMzIsInN1YiI6IjY3OTQwMGNmMGEzMGQ2ZDA1OTIzYTZhYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.G5-T445aHdg1a_idRG3bfa4bKOabw-gqeQAip4Ss8W8';
+}

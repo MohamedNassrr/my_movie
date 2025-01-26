@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:my_movie/core/utils/api_keys.dart';
+import 'package:my_movie/core/utils/api_key.dart';
 //https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1
 class ApiService {
   final _baseUrl = 'https://api.themoviedb.org/3/';
