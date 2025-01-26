@@ -25,8 +25,13 @@ class TopFiveListView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                     horizontal: 11.6,
                   ),
-                  child: TopFiveListViewItem(
-                    movieModel: state.movies[index],
+                  child: GestureDetector(
+                    onTap: (){
+                      print('top five pressed');
+                    },
+                    child: TopFiveListViewItem(
+                      movieModel: state.movies[index],
+                    ),
                   ),
                 );
               },

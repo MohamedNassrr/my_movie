@@ -28,7 +28,7 @@ class HomeViewBody extends StatelessWidget {
                   child: Row(
                     children: [
                       const Text(
-                        'Top Five',
+                        'Top Rated',
                         style: Styles.textStyle30,
                       ),
                       Text(
@@ -76,12 +76,9 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                GestureDetector(
-                  onTap: () {},
-                  child: const Skeletonizer(
-                    enabled: false,
-                    child: LatestListView(),
-                  ),
+                const Skeletonizer(
+                  enabled: false,
+                  child: LatestListView(),
                 ),
               ],
             ),

@@ -23,8 +23,13 @@ class LatestListView extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(
                   vertical: 9.6,
                 ),
-                child: LatestListViewItem(
-                  movieModel: state.movie[index],
+                child: GestureDetector(
+                  onTap: () {
+                    print('latest pressed');
+                  },
+                  child: LatestListViewItem(
+                    movieModel: state.movie[index],
+                  ),
                 ),
               );
             },
