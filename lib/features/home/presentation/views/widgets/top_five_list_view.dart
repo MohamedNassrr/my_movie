@@ -4,7 +4,6 @@ import 'package:my_movie/core/widgets/custom_error_message.dart';
 import 'package:my_movie/features/home/presentation/controller/top_five_cubit/top_five_cubit.dart';
 import 'package:my_movie/features/home/presentation/controller/top_five_cubit/top_five_states.dart';
 import 'package:my_movie/features/home/presentation/views/widgets/top_five_list_view_item.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 class TopFiveListView extends StatelessWidget {
   const TopFiveListView({super.key});

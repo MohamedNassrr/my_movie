@@ -17,3 +17,9 @@ class DiscoverMovieErrorStates extends DiscoverMovieStates{
 
   DiscoverMovieErrorStates(this.errMessage);
 }
+
+class DiscoverChangeTabBarState extends DiscoverMovieStates {}
+
+
+
+
