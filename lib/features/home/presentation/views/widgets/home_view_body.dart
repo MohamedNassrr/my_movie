@@ -4,7 +4,6 @@ import 'package:my_movie/core/utils/app_router.dart';
 import 'package:my_movie/core/utils/styles.dart';
 import 'package:my_movie/features/home/presentation/views/widgets/latest_list_view.dart';
 import 'package:my_movie/features/home/presentation/views/widgets/top_five_list_view.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -64,7 +63,7 @@ class HomeViewBody extends StatelessWidget {
                     const Spacer(),
                     TextButton(
                       onPressed: () {
-                        GoRouter.of(context).push(AppRouter.kDiscovery);
+                        GoRouter.of(context).push(AppRouter.rDiscovery);
                       },
                       child: const Text(
                         'SEE MORE',

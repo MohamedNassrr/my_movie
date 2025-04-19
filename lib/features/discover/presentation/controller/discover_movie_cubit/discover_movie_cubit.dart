@@ -39,12 +39,12 @@ class DiscoverMovieCubit extends Cubit<DiscoverMovieStates> {
   ];
 
   List<Widget> tabBarScreens = [
-    DiscoveryViewBody(),
-    ActionView(),
-    ComedyView(),
-    HorrorView(),
-    FamilyView(),
-    FantasyView(),
-    WarView(),
+    const DiscoveryViewBody(),
+    const ActionView(),
+    const ComedyView(),
+    const HorrorView(),
+    const FamilyView(),
+    const FantasyView(),
+    const WarView(),
   ];
 }

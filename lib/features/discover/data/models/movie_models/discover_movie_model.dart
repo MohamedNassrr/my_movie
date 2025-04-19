@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class MovieModel extends Equatable {
+class DiscoverMovieModel extends Equatable {
   final bool? adult;
   final String? backdropPath;
   final int? id;
@@ -15,7 +15,7 @@ class MovieModel extends Equatable {
   final String? voteAverage;
   final int? voteCount;
 
-  const MovieModel({
+  const DiscoverMovieModel({
     this.adult,
     this.backdropPath,
     this.id,
@@ -31,7 +31,7 @@ class MovieModel extends Equatable {
     this.voteCount,
   });
 
-  factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
+  factory DiscoverMovieModel.fromJson(Map<String, dynamic> json) => DiscoverMovieModel(
         adult: json['adult'] as bool?,
         backdropPath: json['backdrop_path'] as String?,
         id: json['id'] as int?,

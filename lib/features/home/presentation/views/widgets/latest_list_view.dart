@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:my_movie/core/utils/app_router.dart';
 import 'package:my_movie/core/widgets/custom_error_message.dart';
+import 'package:my_movie/core/widgets/custom_loading_indicator.dart';
 import 'package:my_movie/features/home/presentation/controller/latest_movie_cubit/latest_movie_cubit.dart';
 import 'package:my_movie/features/home/presentation/controller/latest_movie_cubit/latest_movie_states.dart';
 import 'package:my_movie/features/home/presentation/views/widgets/latest_list_view_item.dart';
@@ -25,7 +28,10 @@ class LatestListView extends StatelessWidget {
                 ),
                 child: GestureDetector(
                   onTap: () {
-                    print('latest pressed');
+                    GoRouter.of(context).push(
+                      AppRouter.rMovieDetailsView,
+                      extra: state.movie[index],
+                    );
                   },
                   child: LatestListViewItem(
                     movieModel: state.movie[index],
@@ -38,7 +44,7 @@ class LatestListView extends StatelessWidget {
           return CustomErrorMessage(errMessage: state.errMessage);
         } else {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: CustomLoadingIndicator(),
           );
         }
       },

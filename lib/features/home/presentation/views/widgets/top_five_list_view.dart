@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:my_movie/core/utils/app_router.dart';
 import 'package:my_movie/core/widgets/custom_error_message.dart';
+import 'package:my_movie/core/widgets/custom_loading_indicator.dart';
 import 'package:my_movie/features/home/presentation/controller/top_five_cubit/top_five_cubit.dart';
 import 'package:my_movie/features/home/presentation/controller/top_five_cubit/top_five_states.dart';
 import 'package:my_movie/features/home/presentation/views/widgets/top_five_list_view_item.dart';
@@ -26,7 +29,7 @@ class TopFiveListView extends StatelessWidget {
                   ),
                   child: GestureDetector(
                     onTap: (){
-                      debugPrint('top five pressed');
+                      GoRouter.of(context).push(AppRouter.rMovieDetailsView,extra: state.movies[index]);
                     },
                     child: TopFiveListViewItem(
                       movieModel: state.movies[index],
@@ -39,9 +42,11 @@ class TopFiveListView extends StatelessWidget {
         } else if (state is TopFiveErrorStates) {
           return CustomErrorMessage(errMessage: state.errMessage);
         } else {
-          return  const Center(child: CircularProgressIndicator(),);
+          return  const Center(child: CustomLoadingIndicator());
         }
       },
     );
   }
 }
+
+
