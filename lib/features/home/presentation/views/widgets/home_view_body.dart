@@ -76,10 +76,7 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Skeletonizer(
-                  enabled: false,
-                  child: LatestListView(),
-                ),
+                const LatestListView(),
               ],
             ),
           )

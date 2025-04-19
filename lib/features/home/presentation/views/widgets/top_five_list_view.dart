@@ -26,7 +26,7 @@ class TopFiveListView extends StatelessWidget {
                   ),
                   child: GestureDetector(
                     onTap: (){
-                      print('top five pressed');
+                      debugPrint('top five pressed');
                     },
                     child: TopFiveListViewItem(
                       movieModel: state.movies[index],

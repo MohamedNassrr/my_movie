@@ -12,7 +12,7 @@ class MovieModel extends Equatable {
   final String? releaseDate;
   final String? title;
   final bool? video;
-  final String? voteAverage;
+  final double? voteAverage;
   final int? voteCount;
 
   const MovieModel({
@@ -43,7 +43,7 @@ class MovieModel extends Equatable {
         releaseDate: json['release_date'] as String?,
         title: json['title'] as String?,
         video: json['video'] as bool?,
-        voteAverage: (json['vote_average'] as num?)?.toString(),
+        voteAverage: (json['vote_average'] as double?),
         voteCount: json['vote_count'] as int?,
       );
 

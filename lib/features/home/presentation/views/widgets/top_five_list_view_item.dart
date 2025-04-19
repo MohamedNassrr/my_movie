@@ -7,6 +7,7 @@ class TopFiveListViewItem extends StatelessWidget {
   final MovieModel movieModel;
   @override
   Widget build(BuildContext context) {
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -44,7 +45,7 @@ class TopFiveListViewItem extends StatelessWidget {
         Row(
           children: [
             Text(
-              movieModel.voteAverage ?? '',
+              movieModel.voteAverage!.toStringAsFixed(1),
               style: Styles.textStyle19.copyWith(
                 fontSize: 18,
                 color: Colors.grey,

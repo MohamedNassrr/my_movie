@@ -10,8 +10,10 @@ class DiscoverGridList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return BlocBuilder<DiscoverMovieCubit,DiscoverMovieStates>(
       builder: (context, state) {
+
         if(state is DiscoverMovieSuccessStates){
           return GridView.count(
             crossAxisSpacing: 15,
@@ -64,8 +66,9 @@ class DiscoverGridList extends StatelessWidget {
                     ),
                      Row(
                       children: [
+
                         Text(
-                          '${state.movies[index].voteAverage}',
+                          state.movies[index].voteAverage!.toStringAsFixed(1),
                           style: Styles.textStyle18,
                         ),
                         const SizedBox(

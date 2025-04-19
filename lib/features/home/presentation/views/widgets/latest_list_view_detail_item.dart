@@ -4,13 +4,15 @@ import 'package:my_movie/features/home/data/models/movie_models/movie_model.dart
 
 class LatestListViewDetailItem extends StatelessWidget {
   const LatestListViewDetailItem({super.key, required this.movieModel});
+
   final MovieModel movieModel;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Column(
         children: [
-           Row(
+          Row(
             children: [
               Flexible(
                 child: Text(
@@ -23,10 +25,10 @@ class LatestListViewDetailItem extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-           Row(
+          Row(
             children: [
               Text(
-                '${movieModel.voteAverage}',
+                movieModel.voteAverage!.toStringAsFixed(1),
                 style: Styles.textStyle18,
               ),
               const SizedBox(
